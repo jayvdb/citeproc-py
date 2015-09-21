@@ -25,8 +25,9 @@ NAMES = ['author', 'collection_editor', 'composer', 'container_author',
 DATES = ['accessed', 'container', 'event_date', 'issued', 'original_date',
          'submitted']
 
-NUMBERS = ['chapter_number', 'collection_number', 'edition', 'issue', 'number',
-           'number_of_pages', 'number_of_volumes', 'volume']
+NUMBERS = ['chapter_number', 'collection_number', 'edition', 'number',
+           'issue', 'volume',
+           'number_of_pages', 'number_of_volumes']
 
 VARIABLES = (['abstract', 'annote', 'archive', 'archive_location',
               'archive_place', 'authority', 'call_number', 'citation_label',
@@ -38,7 +39,7 @@ VARIABLES = (['abstract', 'annote', 'archive', 'archive_location',
               'original_publisher_place', 'original_title', 'page',
               'page_first', 'PMCID', 'PMID', 'publisher', 'publisher_place',
               'references', 'section', 'source', 'status', 'title',
-              'title_short', 'URL', 'version', 'year_suffix'] +
+              'title_short', 'URL', 'version', 'year_suffix', 'issue', 'volume'] +
              NAMES + DATES + NUMBERS)
 
 LOCALES = [os.path.basename(path)[8:-4]

@@ -347,7 +347,7 @@ class Displayed(object):
 
 class Quoted(object):
     def quote(self, string):
-        piq = self.get_locale_option('punctuation-in-quote').lower() == 'true'
+        #piq = self.get_locale_option('punctuation-in-quote').lower() == 'true'
         if self.get('quotes', 'false').lower() == 'true':
             open_quote = self.get_term('open-quote').single
             close_quote = self.get_term('close-quote').single
@@ -706,6 +706,9 @@ class Text(CitationStylesElement, Formatted, Affixed, Quoted, TextCased,
 
     def _page(self, item, context):
         page = item.reference.page
+        if not hasattr(page, 'first'):
+            return page
+
         str_first = str(page.first)
         text = str_first
         if 'last' in page:
@@ -756,7 +759,10 @@ class Text(CitationStylesElement, Formatted, Affixed, Quoted, TextCased,
         if plural:
             text = term.multiple
         else:
-            text = term.single
+            try:
+                text = term.single
+            except:
+                text =''
 
         return text
 
@@ -1128,7 +1134,11 @@ class Name(CitationStylesElement, Formatted, Affixed, Delimited):
         try:
             result = self.xpath_search(expr)[0].render()
         except IndexError:
-            result = self.get_term('et-al').single
+            foo = self.get_term('et-al')
+            if foo:
+                result = foo.single
+            else:
+                result = ''
         return result
 
     def process(self, item, variable, context=None, sort_options=None, **kwargs):
@@ -1339,7 +1349,10 @@ class Label(CitationStylesElement, Formatted, Affixed, StrippedPeriods,
 
         if (plural_option == 'contextual' and plural or
             plural_option == 'always'):
-            text = term.multiple
+            try:
+                text = term.multiple
+            except:
+                return ''
         else:
             text = term.single
 

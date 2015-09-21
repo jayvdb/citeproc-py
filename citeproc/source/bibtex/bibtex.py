@@ -41,6 +41,9 @@ class BibTeX(BibliographySource):
 #              'year': None,
               'volume': 'volume',
 
+              'doi': 'DOI',
+              'url': 'URL',
+
               # non-standard fields
               'isbn': 'ISBN',
               'issn': 'ISSN'}
@@ -85,6 +88,11 @@ class BibTeX(BibliographySource):
                 pass
             try:
                 csl_field = self.fields[field]
+                if bibtex_entry.document_type == 'inbook':
+                    if field == 'title':
+                        csl_field = 'container_title'
+                    elif field == 'chapter':
+                        csl_field = 'title'
             except KeyError:
                 if field not in ('year', 'month', 'filename'):
                     warn("Unsupported BibTeX field '{}'".format(field))
@@ -95,7 +103,10 @@ class BibTeX(BibliographySource):
                 except ValueError:
                     pass
             elif field == 'pages':
-                value = self._bibtex_to_csl_pages(value)
+                try:
+                    value = self._bibtex_to_csl_pages(value)
+                except:
+                    pass
             elif field in ('author', 'editor'):
                 value = [name for name in self._parse_author(value)]
             else:
@@ -290,6 +301,9 @@ def parse_name(name):
         von_last, first = parts
     elif len(parts) == 3:     # von Last, Jr, First
         von_last, jr, first = parts
+    else:
+        print('warning: name parts unacceptable: %r' % parts)
+        return None, None, name, None
     von, last = split_von_last(von_last)
     join = ' '.join
     return join(first) or None, join(von) or None, join(last), join(jr) or None

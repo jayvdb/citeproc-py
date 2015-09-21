@@ -42,7 +42,7 @@ class CustomDict(dict):
         try:
             return super(CustomDict, self).__getitem__(key)
         except KeyError:
-            raise VariableError
+            raise VariableError('key %s not found in %r' % (key, self))
 
 
 class Reference(CustomDict):
