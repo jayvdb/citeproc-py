@@ -756,7 +756,11 @@ class Text(CitationStylesElement, Formatted, Affixed, Quoted, TextCased,
         if plural:
             text = term.multiple
         else:
-            text = term.single
+            try:
+                text = term.single
+            except Exception as e:
+                print('problem with term {0}: {1}'.format(term, e))
+                text = ''
 
         return text
 
@@ -1128,7 +1132,14 @@ class Name(CitationStylesElement, Formatted, Affixed, Delimited):
         try:
             result = self.xpath_search(expr)[0].render()
         except IndexError:
-            result = self.get_term('et-al').single
+            term = self.get_term('et-al')
+
+            if term:
+                result = foo.single
+            else:
+                print('problem with et-al term')
+                result = ''
+
         return result
 
     def process(self, item, variable, context=None, sort_options=None, **kwargs):
@@ -1339,7 +1350,10 @@ class Label(CitationStylesElement, Formatted, Affixed, StrippedPeriods,
 
         if (plural_option == 'contextual' and plural or
             plural_option == 'always'):
-            text = term.multiple
+            try:
+                text = term.multiple
+            except Exception as e:
+                print('problem with term multiple: {0}: {1}'.format(term, e))
         else:
             text = term.single
 
