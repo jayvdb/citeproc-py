@@ -189,14 +189,19 @@ def main():
         glob_pattern = '*'
         filter_tests = True
 
+    test_file_glob = os.path.join(TESTS_PATH,
+                                  '{0}.json'.format(glob_pattern))
+
+    test_files = glob.glob(test_file_glob)
+
     total_count = {}
     passed_count = {}
     failed = []
     max_tests = int(options.max)
 
     count = 0
-    for filename in glob.glob(os.path.join(TESTS_PATH,
-                                           '{}.json'.format(glob_pattern))):
+
+    for filename in sorted(test_files):
         test_name = os.path.basename(filename).split('.json')[0]
         category = os.path.basename(filename).split('_')[0]
         passed_count.setdefault(category, 0)
@@ -245,7 +250,7 @@ def main():
                                                           passed / total))
 
         out('Failed tests:')
-        for test_name in failed:
+        for test_name in sorted(failed):
             out(' ' + test_name)
 
         out()
