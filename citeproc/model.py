@@ -347,7 +347,7 @@ class Displayed(object):
 
 class Quoted(object):
     def quote(self, string):
-        piq = self.get_locale_option('punctuation-in-quote').lower() == 'true'
+        #piq = self.get_locale_option('punctuation-in-quote').lower() == 'true'
         if self.get('quotes', 'false').lower() == 'true':
             open_quote = self.get_term('open-quote').single
             close_quote = self.get_term('close-quote').single
