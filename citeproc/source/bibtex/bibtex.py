@@ -286,6 +286,9 @@ def parse_name(name):
         von_last, first = parts
     elif len(parts) == 3:     # von Last, Jr, First
         von_last, jr, first = parts
+    else:
+        print('warning: name parts unacceptable: %r' % parts)
+        return None, None, name, None
     von, last = split_von_last(von_last)
     join = ' '.join
     return join(first) or None, join(von) or None, join(last), join(jr) or None
