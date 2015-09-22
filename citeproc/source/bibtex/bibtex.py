@@ -81,6 +81,12 @@ class BibTeX(BibliographySource):
         for field, value in bibtex_entry.items():
             try:
                 csl_field = self.fields[field]
+                if bibtex_entry.document_type == 'inbook':
+                    print('found chapter')
+                    if field == 'title':
+                        csl_field = 'container_title'
+                    elif field == 'chapter':
+                        csl_field = 'title'
             except KeyError:
                 if field not in ('year', 'month', 'filename'):
                     warn("Unsupported BibTeX field '{}'".format(field))
