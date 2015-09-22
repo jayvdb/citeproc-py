@@ -41,7 +41,8 @@ class BibTeXParser(dict):
     def __init__(self, file_or_filename, encoding='ascii'):
         try:
             self.file = open(file_or_filename, 'rt', encoding=encoding)
-        except TypeError:
+        except TypeError as e:
+            print('TypeError', e)
             self.file = file_or_filename
         self.variables = {}
         self.preamble = ''
@@ -60,9 +61,9 @@ class BibTeXParser(dict):
                 safe_part = decode_error.object[:decode_error.start]
                 line_number = len(safe_part.splitlines())
                 offset = file.tell() - len(decode_error.object)
-                if offset > 0:
-                    file.seek(0)
-                    line_number += file.read(offset).count(file.newlines)
+                #if offset > 0:
+                    #file.seek(0)
+                    #line_number += file.read(offset).count(file.newlines)
                 raise BibTeXDecodeError(decode_error, line_number)
             except EOFError:
                 break
