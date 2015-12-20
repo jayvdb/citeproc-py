@@ -12,7 +12,7 @@ from operator import itemgetter
 from lxml import etree
 
 from . import NAMES, DATES, NUMBERS
-from .source import VariableError, DateRange, LiteralDate
+from .source import VariableError, DateRange, LiteralDate, Pages
 from .string import String
 
 
@@ -326,6 +326,12 @@ class Affixed(object):
         if string is not None:
             prefix = self.get('prefix', '')
             suffix = self.get('suffix', '')
+            if isinstance(prefix, Pages):
+                print('prefix is Pages')
+            if isinstance(suffix, Pages):
+                print('suffix is Pages')
+            if prefix is None and prefix is None:
+                return string
             return prefix + string + suffix
         return None
 
