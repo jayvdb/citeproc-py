@@ -70,11 +70,11 @@ class Name(CustomDict):
         else:
             required = set()
             optional = {'family', 'given', 'dropping-particle', 'non-dropping-particle',
-                        'suffix'}
+                        'suffix', 'literal'}
         super(Name, self).__init__(args, required, optional)
 
     def parts(self):
-        return (self.get('given'), self.get('family'),
+        return (self.get('given'), self.get('family') or self.get('literal'),
                 self.get('dropping-particle'),
                 self.get('non-dropping-particle'), self.get('suffix'))
 
