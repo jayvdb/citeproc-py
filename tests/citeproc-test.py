@@ -92,7 +92,8 @@ class ProcessorTest(object):
                 citation = Citation(citation_items)
                 if 'citationID' in cit:
                     citation.key = cit['citationID']
-                citation.note_index = cit['properties']['noteIndex']
+                if 'noteIndex' in cit['properties']:
+                    citation.note_index = cit['properties']['noteIndex']
                 citations.append(citation)
         elif self.data['bibentries']:
             citation_items = [self.parse_citation_item({'id': entry})

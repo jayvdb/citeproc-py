@@ -138,9 +138,9 @@ disambiguate_ToInitialOnly
 disambiguate_Trigraph
 disambiguate_YearCollapseWithInstitution
 disambiguate_YearSuffixAndSort
-disambiguate_YearSuffixAtTwoLevels                                 # uncaught exception
-disambiguate_YearSuffixFiftyTwoEntries                             # uncaught exception
-disambiguate_YearSuffixFiftyTwoEntriesByCite                       # uncaught exception
+disambiguate_YearSuffixAtTwoLevels
+disambiguate_YearSuffixFiftyTwoEntries
+disambiguate_YearSuffixFiftyTwoEntriesByCite
 disambiguate_YearSuffixMacroSameYearExplicit
 disambiguate_YearSuffixMacroSameYearImplicit
 disambiguate_YearSuffixMidInsert
@@ -182,15 +182,15 @@ fullstyles_ChicagoAuthorDateSimple
 group_ComplexNesting
 integration_CrossCitationIbidOnInsert
 integration_DeleteName
-integration_DisambiguateAddGivenname1                              # uncaught exception
-integration_DisambiguateAddGivenname2                              # uncaught exception
-integration_DuplicateItem                                          # uncaught exception
-integration_DuplicateItem2                                         # uncaught exception
+integration_DisambiguateAddGivenname1
+integration_DisambiguateAddGivenname2
+integration_DuplicateItem
+integration_DuplicateItem2
 integration_FirstReferenceNoteNumberPositionChange
 integration_IbidOnInsert
 integration_SimpleFirstReferenceNoteNumber
 integration_SimpleIbid
-integration_YearSuffixOnOffOn                                      # uncaught exception
+integration_YearSuffixOnOffOn
 label_CollapsedPageNumberPluralDetection
 label_EditorTranslator1                                            # uncaught exception
 label_PluralNumberOfVolumes
