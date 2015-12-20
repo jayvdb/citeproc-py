@@ -1128,7 +1128,14 @@ class Name(CitationStylesElement, Formatted, Affixed, Delimited):
         try:
             result = self.xpath_search(expr)[0].render()
         except IndexError:
-            result = self.get_term('et-al').single
+            term = self.get_term('et-al')
+
+            if term:
+                result = foo.single
+            else:
+                print('problem with et-al term.single')
+                result = ''
+
         return result
 
     def process(self, item, variable, context=None, sort_options=None, **kwargs):
