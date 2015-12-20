@@ -1342,7 +1342,11 @@ class Label(CitationStylesElement, Formatted, Affixed, StrippedPeriods,
 
         if (plural_option == 'contextual' and plural or
             plural_option == 'always'):
-            text = term.multiple
+            try:
+                text = term.multiple
+            except Exception as e:
+                print('problem with term multiple: {0}: {1}'.format(term, e))
+                text = None
         else:
             text = term.single
 
