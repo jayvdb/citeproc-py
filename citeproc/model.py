@@ -932,7 +932,11 @@ class Date_Part(CitationStylesElement, Formatted, Affixed, TextCased,
                 term = 'season'
 
             if form == 'long':
-                text = context.get_term('{}-{:02}'.format(term, index)).single
+                term = context.get_term('{}-{:02}'.format(term, index))
+                if term is None:
+                    return ''
+
+                text = term.single
             elif form == 'short':
                 term = context.get_term('{}-{:02}'.format(term, index), 'short')
                 text = term.single

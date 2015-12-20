@@ -3,7 +3,7 @@
 
 affix_PrefixFullCitationTextOnly
 affix_PrefixWithDecorations
-affix_SuppressDelimiterCharsWhenFullStopInSuffix                   # uncaught exception
+affix_SuppressDelimiterCharsWhenFullStopInSuffix                   # uncaught exception in lxml
 affix_WithCommas
 affix_WordProcessorAffixNoSpace
 api_SuppressAuthor
@@ -81,7 +81,7 @@ collapse_YearSuffixImplicitCollapseNoYearSuffixDelimiter
 condition_IsNumeric
 condition_SingletonIfMatchNone
 date_DateNoDateNoTest
-date_VariousInvalidDates                                           # uncaught exception
+date_VariousInvalidDates
 date_YearSuffixDelimiter
 date_YearSuffixImplicitWithNoDate
 date_YearSuffixImplicitWithNoDateOneOnly
@@ -226,7 +226,7 @@ magic_SubsequentAuthorSubstituteNotFooled
 magic_SubsequentAuthorSubstituteOfTitleField
 magic_SuperscriptChars
 magic_SuppressDuplicateVariableRendering
-magic_SuppressExtraTerminalPunctuationAfterTerm                    # uncaught exception
+magic_SuppressExtraTerminalPunctuationAfterTerm                    # uncaught exception in lxml
 magic_SuppressLayoutDelimiterIfPrefixComma
 magic_TermCapitalizationWithPrefix
 magic_TextRangeFrench
