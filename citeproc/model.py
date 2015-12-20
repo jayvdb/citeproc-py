@@ -756,7 +756,10 @@ class Text(CitationStylesElement, Formatted, Affixed, Quoted, TextCased,
         if plural:
             text = term.multiple
         else:
-            text = term.single
+            try:
+                text = term.single
+            except Exception as e:
+                text = None
 
         return text
 
