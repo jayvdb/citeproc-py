@@ -19,7 +19,6 @@ from citeproc import CitationStylesStyle, CitationStylesBibliography
 from citeproc.source import Citation, CitationItem, Locator
 from citeproc.source.json import CiteProcJSON
 
-
 CITEPROC_TEST_REPOSITORY = 'https://bitbucket.org/bdarcus/citeproc-test'
 CITEPROC_TEST_COMMIT = 'b15130259c4c'
 
@@ -304,7 +303,6 @@ if __name__ == '__main__':
         from imp import load_source
         processor = load_source('processor', TEST_PARSER_PATH)
     from processor import CslTest
-    global CslTest
 
     total_count = {}
     passed_count = {}
