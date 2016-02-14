@@ -169,6 +169,10 @@ MACROS = {
     'quotedblbase': SymbolByName('DOUBLE LOW-9 QUOTATION MARK'),
     'quotesinglbase': SymbolByName('SINGLE LOW-9 QUOTATION MARK'),
 
+    'thinspace': SymbolByName('THIN SPACE'),
+    'thinspacea': SymbolByName('THIN SPACE'),
+
+    'textasciiacute': Symbol('´'),
     'textasciicircum': Symbol('^'),
     'textasciitilde': Symbol('~'),
     'textasteriskcentered': Symbol('*'),
