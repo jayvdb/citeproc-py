@@ -176,6 +176,7 @@ MACROS = {
 
     'thinspace': SymbolByName('THIN SPACE'),
 
+    'textasciiacute': Symbol('´'),
     'textasciicircum': Symbol('^'),
     'textasciitilde': Symbol('~'),
     'textasteriskcentered': Symbol('*'),
