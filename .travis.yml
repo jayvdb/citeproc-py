@@ -8,6 +8,7 @@ python:
   - '3.3'
   - '3.4'
   - '3.5'
+  - 'nightly'
 
 install:
   - pip install tox-travis "virtualenv<14.0.0"
